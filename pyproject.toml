@@ -1,0 +1,34 @@
+[project]
+name = "python-code-executor"
+version = "0.1.0"
+description = "An MCP server that provides secure Python code execution capabilities"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+keywords = ["mcp", "python", "code-execution", "sandbox"]
+
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "uvicorn>=0.30.0",
+    "starlette>=0.38.0",
+    "sse-starlette>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.scripts]
+python-executor = "python_code_executor.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["python_code_executor"]

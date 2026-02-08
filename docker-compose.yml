@@ -1,0 +1,32 @@
+services:
+  python-executor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-executor-mcp
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # Resource limits for safety
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    # Read-only root filesystem (sandbox venv is in /home/executor)
+    read_only: false
+    # Drop all capabilities except what's needed
+    cap_drop:
+      - ALL
+    # Logging
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
