@@ -4,9 +4,9 @@ version = "0.1.0"
 description = "An MCP server that provides secure Python code execution capabilities"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 authors = [
-    { name = "Your Name", email = "you@example.com" }
+    { name = "Sahan Dilshan", email = "sahandilshan222@gmail.com" }
 ]
 keywords = ["mcp", "python", "code-execution", "sandbox"]
 
